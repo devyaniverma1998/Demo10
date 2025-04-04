@@ -1,24 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
+
+import Blank from "./components/Blank";
+import Typography from "./components/Typography";
+import Home from "./components/Home";
+import Element from "./components/Element";
+import Form from "./components/Form";
+import Sidebar from "./components/Sidebar";  // ✅ Added import
+import Content from "./components/Content";  // ✅ Added import
+import Table from "./components/Table";  // ✅ Added import
+import Widget from "./components/Widget";  // ✅ Added import
+
+import "./App.css";
+import Chart from "./components/Chart";
+import Button from "./components/Button";
+import Signup from "./components/Signup";
+import Signin from "./components/Signin";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Sidebar />  {/* ✅ Sidebar is now imported */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/content" element={<Content />} />
+          <Route path="/blank" element={<Blank />} />
+          <Route path="/form" element={<Form />} />
+          <Route path="/table" element={<Table />} />
+          <Route path="/sidebar" element={<Sidebar />} />
+          <Route path="/widget" element={<Widget />} />
+          <Route path="/chart" element={<Chart />} />
+          <Route path="/typography" element={<Typography />} />
+          <Route path="/button" element={<Button />} />
+          <Route path="/element" element={<Element />} />
+          <Route path="/signin" element={<Signin />} />
+          <Route path="/signup" element={<Signup />} />
+        </Routes> </div>
+    </Router>
   );
 }
 
